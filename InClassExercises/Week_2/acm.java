@@ -1,42 +1,60 @@
 import java.util.Scanner;
+
 public class acm {
+
     public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
 
-            Scanner scan = new Scanner (System.in);
-    
-            //delimiter to get the minutes and the problem
-            //scan.useDelimiter(":|\\s+");
-            int[] solved = new int[26];
+        int problemsSolved = 0;
+        int timeScore = 0;
+        int[] penalty = new int[26];
+        boolean[] solved = new boolean[26];
 
-            int numMinutes = scan.nextInt();
-            int time = 0;
-            int numSovled = 0;
-    
-            while (numMinutes != -1) {
-                
-                String problemName = scan.next();
-                problem prob1 = new problem();
-                prob1.name = problemName;
-                prob1.time = numMinutes;
-                prob1.solved = false;
-
-                String result = scan.next();
-    
-                if (result.equals("right")) {
-                    numSovled++;
-                    prob1.time += numMinutes;
-                    time += prob1.time;
-                } else {
-                    prob1.time += 20;
-                }
-                numMinutes = scan.nextInt();
+        while (scan.hasNext()) {
+            String line = scan.nextLine().trim();
+            if (line.equals("-1")) {
+                break;
             }
-            System.out.println(numSovled + " " + time);
-    }
 
-    static class problem  {
-        String name;
-        boolean solved;
-        int time;
+            if (line.isEmpty()) {
+                continue; // Skip empty lines
+            }
+
+            String[] parts = line.split("\\s+");
+            if (parts.length != 3) {
+                continue; // Skip invalid log entries
+            }
+
+            int time;
+            try {
+                time = Integer.parseInt(parts[0]);
+            } catch (NumberFormatException e) {
+                continue; // Skip lines with invalid time format
+            }
+
+            char problem = parts[1].charAt(0);
+            String result = parts[2];
+
+            int index = problem - 'A';
+
+            // Ignore submissions for already solved problems
+            if (solved[index]) {
+                continue;
+            }
+
+            if (result.equals("right")) {
+                problemsSolved++;
+                timeScore += time + penalty[index];
+                solved[index] = true;
+            } else if (result.equals("wrong")) {
+                penalty[index] += 20;
+            }
+        }
+
+        System.out.println(problemsSolved + " " + timeScore);
+
+        scan.close();
+        
     }
 }
