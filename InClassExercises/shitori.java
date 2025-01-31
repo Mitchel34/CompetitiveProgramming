@@ -31,7 +31,6 @@ public class shitori {
                     break;
                 }
             }
-
             if (isShitori) {
                 System.out.println("Shitori");
             } else {
