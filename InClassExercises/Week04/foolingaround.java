@@ -72,5 +72,16 @@ public class foolingaround {
         }
         return false; // If all moves lead to Bob's win, Alice loses
     }
+
+    // enumerate the possible ways for bob to win
+    static void enumerateLosingPositions() {
+        for (int i = 2; i < MAX_N; i++) {
+            if (!canAliceWin(i)) {
+                losingPositions.add(i);
+            }
+        }
+    }
+
+    
 }
 
