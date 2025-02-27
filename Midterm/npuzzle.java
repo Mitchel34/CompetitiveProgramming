@@ -1,8 +1,10 @@
 import java.util.*;
+
 public class npuzzle {
 
-    // A * search algorithm (Manhanttan distance) similar to my maze solver app
-     public static void main(String[] args) {
+    // Manhattan distance problem similar to my A* algo maze solver app that uses
+    // Manhattan distance as heuristic
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
         // Build the board
@@ -19,8 +21,7 @@ public class npuzzle {
         int scatter = 0;
 
         // Check the board
-
-        for (int i = 0; i < 4; i ++) {
+        for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 char ch = board[i][j];
                 // Ignore the empty space
@@ -33,12 +34,12 @@ public class npuzzle {
                 int goalRow = index / 4;
                 int goalCol = index % 4;
 
-                // A* search algorithm
+                // Manhattan distance
                 scatter += Math.abs(i - goalRow) + Math.abs(j - goalCol);
 
             }
         }
 
         System.out.println(scatter);
-     }
+    }
 }
