@@ -28,6 +28,28 @@ public class falling {
      * such integers exist, instead outut "impossible".
      */
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int D = scan.nextInt();
+        scan.close();
 
+        final int MAX = 200000;
+        boolean found = false;
+
+        for (int n1 = 0; n1 <= MAX; n1++) {
+            long val = (long) n1 * n1 + D;
+            if (val > (long) MAX * MAX) {
+                break;
+            }
+
+            int n2 = (int) Math.round(Math.sqrt(val));
+            if ((long) n2 * n2 == val) {
+                System.out.println(n1 + " " + n2);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("impossible");
+        }
     }
 }
