@@ -39,7 +39,6 @@ public class npuzzle {
 
             }
         }
-
         System.out.println(scatter);
     }
 }
