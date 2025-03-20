@@ -30,7 +30,7 @@ public class lawnmower {
             } else {
                 System.out.println("NO");
             }
-
+            scan.close();
         }
 
     }
@@ -45,5 +45,7 @@ public class lawnmower {
             current = Math.max(current, cut + width / 2);
         }
         return current >= length;
+       
     }
+    
 }

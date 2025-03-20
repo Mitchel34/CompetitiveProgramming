@@ -29,8 +29,9 @@ public class proofs {
                 }
                 conclusions.add(conclusion);
             }
+            scan.close();
         }
-        scan.close();
         System.out.println("correct");
     }
+
 }

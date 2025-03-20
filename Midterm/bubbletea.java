@@ -40,5 +40,6 @@ public class bubbletea {
         } else {
             System.out.println(money / minCost - 1);
         }
+        scan.close();
     }
 }
