@@ -7,7 +7,7 @@ public class ants {
         int cases = scan.nextInt();
         for (int i = 0; i < cases; i++) {
             int L = scan.nextInt();
-            int n = scan.nextInt();
+            int n = scan.nextInt(); 
             int earliest = 0;
             int latest = 0;
             for (int j = 0; j < n; j++) {
