@@ -2,18 +2,18 @@ import java.util.*;
 
 public class cartrouble {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
 
         Map<Integer, List<Integer>> adj = new HashMap<>();
         Map<Integer, List<Integer>> rev = new HashMap<>();
         List<Integer> order = new ArrayList<>();
 
         while (n-- > 0) {
-            int id = sc.nextInt(), k = sc.nextInt();
+            int id = scan.nextInt(), k = scan.nextInt();
             if (id != 0) order.add(id);
             for (int i = 0; i < k; i++) {
-                int to = sc.nextInt();
+                int to = scan.nextInt();
                 adj.computeIfAbsent(id, x -> new ArrayList<>()).add(to);
                 rev.computeIfAbsent(to, x -> new ArrayList<>()).add(id);
             }
@@ -28,6 +28,7 @@ public class cartrouble {
 
         if (output.isEmpty()) System.out.println("NO PROBLEMS");
         else output.forEach(System.out::println);
+        scan.close();
     }
 
     private static Set<Integer> bfs(int start, Map<Integer, List<Integer>> graph) {

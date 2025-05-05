@@ -2,8 +2,8 @@ import java.util.*;
 
 public class racingalphabet {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = Integer.parseInt(sc.nextLine());
+        Scanner scan = new Scanner(System.in);
+        int N = Integer.parseInt(scan.nextLine());
         double arcLen = 60 * Math.PI / 28.0;
         double speed = 15.0;
 
@@ -16,7 +16,7 @@ public class racingalphabet {
         pos.put('\'', 27);
 
         for (int caseNum = 0; caseNum < N; caseNum++) {
-            String line = sc.nextLine();
+            String line = scan.nextLine();
             int L = line.length();
             double time = 0.0;
 
@@ -40,6 +40,6 @@ public class racingalphabet {
             // output with 1e-6 precision
             System.out.printf("%.6f%n", time);
         }
-        sc.close();
+        scan.close();
     }
 }
