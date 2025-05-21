@@ -1,0 +1,18 @@
+cabal-version:   3.14
+name:            perfect-maze
+version:         0.1.0.0
+license:         NONE
+author:          Mitchel Carson
+maintainer:      mitchel.carson@gmail.com
+build-type:      Simple
+extra-doc-files: CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall
+
+executable perfect-maze
+    import:           warnings
+    main-is:          perfectMazeGUI.hs
+    build-depends:    base, gloss, random, array, containers
+    hs-source-dirs:   app
+    default-language: Haskell2010
